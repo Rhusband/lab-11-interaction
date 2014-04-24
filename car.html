@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>Car</title>
+</head>
+<body>
+<canvas id="sketch" width="800" height="600"></canvas>
+	<script>
+	document.addEventListener('DOMContentLoaded', main);
+
+var sketch;
+var context;
+function draw_circle(x, y, r) {
+	context.beginPath();
+	context.arc(x, y, r, 0, 2 * Math.PI, true);
+	context.closePath();
+	context.fill();
+}
+function main() {
+	sketch = document.getElementById('sketch');
+	context = sketch.getContext("2d");
+	sketch.addEventListener("click", function(event) {
+		context.clearRect(0, 0, sketch.offsetWidth, sketch.offsetHeight);
+		context.fillStyle = "33AA88"
+		context.fillRect(event.x+10, event.y, 12, 60)
+		context.fillRect(event.x + 8, event.y, 80, 10)
+		context.fillRect(event.x + 4, event.y+30, 100, 30);
+		draw_circle(event.x+18, event.y+45, 28)
+		draw_circle(event.x+98, event.y+50, 21)
+		context.fillStyle = "001100"
+		draw_circle(event.x+11, event.y+50, 20)
+		draw_circle(event.x+97, event.y+55, 15);
+	});
+}
+	</script>
+</body>
+</html>
